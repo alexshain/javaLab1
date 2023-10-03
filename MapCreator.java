@@ -7,10 +7,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MapCreater {
-    ArrayList<String> arrayList;
+public class MapCreator {
+    List<String> arrayList;
 
-    MapCreater (ArrayList<String> arrayList) {
+    MapCreator (List<String> arrayList) {
         this.arrayList = arrayList;
     }
 

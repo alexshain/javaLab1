@@ -6,25 +6,25 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class WordMaker {
+public class WordCounter {
     Reader reader;
 
-    WordMaker(Reader reader) {
+    WordCounter(Reader reader) {
         this.reader = reader;
     }
 
     public List <Map.Entry<String, Integer>> readToArr() {
         StringBuilder fullString = new StringBuilder();
-        ArrayList<String> arrayList = new ArrayList<>();
-        ArrayList<String> arrayListFinal = new ArrayList<>();
+        List<String> arrayList = new ArrayList<>();
+        List<String> arrayListFinal = new ArrayList<>();
         try {
-            int line=reader.read();
+            int line = reader.read();
             while (line != -1) {
                 if(Character.isLetterOrDigit(line)) {
                     fullString.append((char)line);
                 } else {
                     arrayList.add(fullString.toString());
-                    fullString = new StringBuilder();
+                    fullString.setLength(0);;
                 }
                 line = reader.read();
             }
@@ -37,7 +37,7 @@ public class WordMaker {
         catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        MapCreater words = new MapCreater(arrayListFinal);
+        MapCreator words = new MapCreator(arrayListFinal);
         return words.mapGetter();
     }
 }
